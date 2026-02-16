@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
 interface AboutProps {
@@ -9,7 +10,7 @@ interface AboutProps {
   vision: string;
 }
 
-const About: React.FC<AboutProps> = ({ name, description, background, passion, goals, vision }) => {
+const About: React.FC<AboutProps> = ({ description, background, passion, goals, vision }) => {
   return (
     <section className="py-20 px-4 bg-white dark:bg-gray-900 transition-colors duration-500" id="about">
       <div className="max-w-3xl mx-auto flex flex-col gap-6 animate-fade-in">
