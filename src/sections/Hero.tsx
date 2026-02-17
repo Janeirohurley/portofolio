@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ name, title, description, onDownloadCV }) =
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="flex flex-col space-y-6 items-center md:items-start text-center md:text-left w-full"
         >
-          <span className="text-cyan-400 dark:text-cyan-600 font-mono tracking-widest uppercase text-xs sm:text-sm">2026 • Portfolio</span>
+          <span className="text-cyan-400 dark:text-cyan-600 font-mono tracking-widest  text-xs sm:text-sm">2026 • Portfolio</span>
 
           <div className="space-y-2 w-full">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#4CC9F0] dark:text-[#4361ee] tracking-tight wrap-break-word w-full">

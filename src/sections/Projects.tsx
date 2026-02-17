@@ -32,7 +32,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         {/* Header Dynamique */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">
+            <h2 className="text-4xl md:text-5xl font-black  tracking-tighter">
               Réalisations <span className="text-[#4CC9F0]">Récentes</span>
             </h2>
             <div className="h-1 w-20 bg-cyan-500 mt-2 rounded-md"></div>

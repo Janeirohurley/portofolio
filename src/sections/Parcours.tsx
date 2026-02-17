@@ -34,7 +34,7 @@ const RoadmapRich: React.FC<RoadmapRichProps> = ({
 
         {/* En-tête de section dynamique */}
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 uppercase">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 ">
             {title}
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
@@ -111,7 +111,7 @@ const RoadmapRich: React.FC<RoadmapRichProps> = ({
           viewport={{ once: true }}
           className="mt-32 p-10 rounded-md bg-gradient-to-r from-blue-900/10 to-purple-900/10 border border-white/5 text-center"
         >
-          <h3 className="text-2xl font-bold mb-6 italic text-slate-200">
+          <h3 className="text-2xl font-bold mb-6  text-slate-200">
             "{footerQuote}"
           </h3>
           <div className="flex flex-wrap justify-center gap-6 text-xs font-mono text-cyan-500">

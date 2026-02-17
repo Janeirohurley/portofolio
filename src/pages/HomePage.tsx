@@ -6,6 +6,7 @@ import ToggleDarkMode from '../components/ToggleDarkMode';
 import useDarkMode from '../components/useDarkMode';
 import RoadmapRich from '../sections/Parcours';
 import TrustSection from '../sections/SocialProof';
+import InfoBurundi from '../sections/InfoBurundi';
 
 // Données fictives à remplacer par vos vraies infos
 const heroData = {
@@ -113,6 +114,7 @@ const HomePage: React.FC = () => {
       <ToggleDarkMode />
       <main className="bg-white dark:bg-gray-900 transition-colors duration-500">
         <Hero {...heroData} />
+        <InfoBurundi />
         <RoadmapRich sections={mySections} title="Mon Expertise" />
         <Projects projects={myProjectsData} />
 

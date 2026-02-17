@@ -23,3 +23,22 @@ export interface Experience {
   description: string;
   technologies: string[];
 }
+
+
+export interface CniData {
+  nom: string;
+  prenom: string;
+  pere: string;
+  mere: string;
+  province: string;
+  commune: string;
+  colline: string;
+  naissance: string;
+  etatCivil: string;
+  etatCivil2: string;
+  profession: string;
+  numberID: string;
+  donationPlace: string;
+  date: string;
+  datationName: string;
+}
