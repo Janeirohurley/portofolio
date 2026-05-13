@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface CniData {
     province: string;
@@ -10,20 +10,32 @@ interface RightPanelProps {
     myInfos: CniData;
     cniPaperStyle: React.CSSProperties;
     isRightFolded: boolean;
+    isLeftFolded: boolean;
     setIsRightFolded: (v: boolean) => void;
+    isFlipped: boolean;
 }
-
 export const InfoBurundiRightPanel: React.FC<RightPanelProps> = ({
     myInfos,
     cniPaperStyle,
     isRightFolded,
-    setIsRightFolded,
+    isFlipped,
+    isLeftFolded,
+    setIsRightFolded
 }) => {
+    const [isShaking, setIsShaking] = useState(false);
+    const handleClick = () => {
+        if (isLeftFolded) {
+            setIsShaking(true);
+            setTimeout(() => setIsShaking(false), 500);
+            return;
+        }
+        setIsRightFolded(!isRightFolded);
+    };
     return (
         <div
-            onClick={() => setIsRightFolded(!isRightFolded)}
+            onClick={handleClick}
             className={`flex-1 p-2 transition-all duration-1000 cursor-pointer z-30 relative origin-left border-l border-black/10 justify-start flex items-center shadow-[10px_0_15px_-5px_rgba(0,0,0,0.3)]
-              ${isRightFolded ? 'rotate-y-180' : 'rotate-y-0'}`}
+              ${isRightFolded ? isFlipped ? 'rotate-y--180' : 'rotate-y-180' : 'rotate-y-0'} ${isShaking ? 'shake' : ''}`}
             style={{ ...cniPaperStyle, transformStyle: 'preserve-3d' }}
         >
             {/* FACE A : TABLEAU (Visible quand ouvert) */}
@@ -127,6 +139,17 @@ export const InfoBurundiRightPanel: React.FC<RightPanelProps> = ({
                 .rotate-y-180 { transform: rotateY(180deg); }
                 .rotate-y-0 { transform: rotateY(0deg); }
                 .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+                @keyframes shake {
+                    0% { transform: translateX(0); }
+                    20% { transform: translateX(-3px); }
+                    40% { transform: translateX(3px); }
+                    60% { transform: translateX(-3px); }
+                    80% { transform: translateX(3px); }
+                    100% { transform: translateX(0); }
+                }
+                .shake {
+                    animation: shake 0.2s;
+                }
             `}</style>
         </div>
     );

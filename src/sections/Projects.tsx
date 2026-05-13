@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink } from 'lucide-react';
 
 // 1. Définition de la structure d'un projet
 export interface ProjectItem {
@@ -69,7 +70,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: "circOut" }}
-                className="group relative bg-[#0a192f] border border-slate-800 rounded-md overflow-hidden hover:border-cyan-500/50 transition-all shadow-2xl flex flex-col"
+                className="group relative bg-[#0a192f] border border-slate-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all shadow-2xl flex flex-col"
               >
                 {/* Overlay Image avec Zoom */}
                 <div className="h-52 bg-slate-800 relative overflow-hidden">
@@ -103,14 +104,16 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   <div className="flex gap-3 mt-auto">
                     <a
                       href={project.github}
-                      className="flex-1 text-center py-3 text-[10px] font-black tracking-widest border border-slate-700 rounded-md hover:bg-white hover:text-[#020c1b] transition-all"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 text-[10px] font-black tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-[#020c1b] transition-all"
                     >
+                      <Github size={14} />
                       SOURCE CODE
                     </a>
                     <a
                       href={project.link}
-                      className="flex-1 text-center py-3 text-[10px] font-black tracking-widest bg-[#4CC9F0] text-[#020c1b] rounded-md hover:bg-white transition-all shadow-[0_0_15px_rgba(76,201,240,0.2)]"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 text-[10px] font-black tracking-widest bg-[#4CC9F0] text-[#020c1b] rounded-xl hover:bg-white transition-all shadow-[0_0_15px_rgba(76,201,240,0.2)]"
                     >
+                      <ExternalLink size={14} />
                       LIVE PREVIEW
                     </a>
                   </div>

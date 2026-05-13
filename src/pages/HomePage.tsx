@@ -2,11 +2,12 @@ import React from 'react';
 import Hero from '../sections/Hero';
 import Projects from '../sections/Projects';
 import Contact from '../sections/Contact';
-import ToggleDarkMode from '../components/ToggleDarkMode';
 import useDarkMode from '../components/useDarkMode';
 import RoadmapRich from '../sections/Parcours';
 import TrustSection from '../sections/SocialProof';
 import InfoBurundi from '../sections/InfoBurundi';
+import Navbar from '../components/Navbar';
+import Experience from '../sections/Experience';
 
 // Données fictives à remplacer par vos vraies infos
 const heroData = {
@@ -65,8 +66,8 @@ const mySections = [
  const myProjectsData = [
   {
     title: "E-Commerce Architecture",
-    description: "Plateforme scalable avec tunnel de vente optimisé.",
-    longDescription: "Ce projet utilise Django pour la gestion complexe des commandes et React pour une interface fluide. L'architecture supporte des milliers de requêtes grâce à Redis et PostgreSQL.",
+    description: "Solution complète de vente en ligne avec gestion de stock et paiement sécurisé.",
+    longDescription: "Conception d'une architecture résiliente gérant des flux transactionnels complexes. Focus sur la sécurité des données et l'optimisation des performances SQL.",
     tech: ["Django", "React", "PostgreSQL", "Stripe"],
     features: ["Paiement sécurisé via Stripe", "Gestion de stock en temps réel", "Auth JWT multi-rôles"],
     link: "https://demo.com",
@@ -74,9 +75,9 @@ const mySections = [
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1000"
   },
   {
-    title: "Système de Monitoring",
-    description: "Dashboard analytique pour serveurs cloud.",
-    longDescription: "Un outil de monitoring bas niveau écrit en C++ pour la capture de données, avec un frontend en TypeScript pour la visualisation graphique des métriques CPU/RAM.",
+    title: "Système de Monitoring Cloud",
+    description: "Dashboard analytique haute performance pour la surveillance d'infrastructure.",
+    longDescription: "Développement d'un agent de collecte bas niveau en C++ couplé à une interface de visualisation en temps réel. Analyse de métriques système critiques.",
     tech: ["C++", "TypeScript", "Node.js", "InfluxDB"],
     features: ["Graphiques temps réel (Socket.io)", "Alertes emails automatiques", "Logs système bas-niveau"],
     link: "https://demo.com",
@@ -111,15 +112,26 @@ const HomePage: React.FC = () => {
   useDarkMode();
   return (
     <>
-      <ToggleDarkMode />
+      <Navbar />
       <main className="bg-white dark:bg-gray-900 transition-colors duration-500">
         <Hero {...heroData} />
         <InfoBurundi />
-        <RoadmapRich sections={mySections} title="Mon Expertise" />
-        <Projects projects={myProjectsData} />
+        <div id="expertise">
+          <RoadmapRich sections={mySections} title="Mon Expertise" />
+        </div>
+        <div id="projects">
+          <Projects projects={myProjectsData} />
+        </div>
 
-        <TrustSection reviews={reviewsData} languages={languagesData} />
-        <Contact  />
+        <div id="experience">
+          <Experience />
+        </div>
+        <div>
+          <TrustSection reviews={reviewsData} languages={languagesData} />
+        </div>
+        <div id="contact">
+          <Contact  />
+        </div>
         <footer className="py-12 text-center text-sm text-gray-500 dark:text-gray-600 border-t border-gray-200 dark:border-gray-800">
           <p>© {new Date().getFullYear()} Janeiro Hurley — Développeur Full Stack</p>
           <p className="mt-2">Construit avec React, TypeScript & Tailwind CSS</p>

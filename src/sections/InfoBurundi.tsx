@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { InfoBurundiCard } from "../components/InfoBurundiCard";
 import type { CniData } from "../types/portfolio";
 
 export default function InfoBurundi() {
     const [isLeftFolded, setIsLeftFolded] = useState<boolean>(false);
     const [isRightFolded, setIsRightFolded] = useState<boolean>(false);
+    const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
     // Simulation de tes données
     const myInfos:CniData = {
@@ -45,12 +46,21 @@ export default function InfoBurundi() {
                 setIsLeftFolded={setIsLeftFolded}
                 isRightFolded={isRightFolded}
                 setIsRightFolded={setIsRightFolded}
+                isFlipped={isFlipped}
+                setIsFlipped={setIsFlipped}
             />
             <style>{`
                 .perspective-1000 { perspective: 2000px; }
                 .backface-hidden { backface-visibility: hidden; }
                 .rotate-y-180 { transform: rotateY(-175deg); }
                 .rotate-y--180 { transform: rotateY(175deg); }
+                .flip-card {
+                    transition: transform 0.6s;
+                    transform-style: preserve-3d;
+                }
+                .flipped {
+                    transform: rotateY(180deg) scaleY(1);
+                }
             `}</style>
         </div>
     );

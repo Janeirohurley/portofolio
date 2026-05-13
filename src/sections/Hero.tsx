@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Download, Send } from 'lucide-react';
 import profileImage from '../assets/profile2.jpg';
 import reactlogo from '../assets/language/react.svg';
 import typescriptlogo from '../assets/language/ts.jpg';
@@ -12,7 +13,7 @@ interface HeroProps {
   onDownloadCV?: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ name, title, description, onDownloadCV }) => {
+const Hero: React.FC<HeroProps> = ({ name, onDownloadCV }) => {
   // Configuration du Parallaxe au Scroll
   const { scrollY } = useScroll();
 
@@ -22,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ name, title, description, onDownloadCV }) =
   const opacityFade = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className="relative min-h-screen bg-[#051923] dark:bg-white text-white dark:text-[#051923] overflow-hidden flex items-center transition-colors duration-500">
+    <section id="home" className="relative min-h-screen bg-[#051923] dark:bg-white text-white dark:text-[#051923] overflow-hidden flex items-center transition-colors duration-500 pt-20">
 
       {/* Cercle lumineux dynamique en fond avec Parallaxe */}
       <motion.div
@@ -46,23 +47,30 @@ const Hero: React.FC<HeroProps> = ({ name, title, description, onDownloadCV }) =
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#4CC9F0] dark:text-[#4361ee] tracking-tight wrap-break-word w-full">
               {name}
             </h1>
-            <h2 className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-slate-200 dark:text-slate-700 w-full">
-              {title}
+            <h2 className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-slate-200 dark:text-slate-700 w-full animate-pulse">
+              Disponible pour de nouveaux défis
             </h2>
           </div>
 
           <p className="text-gray-400 dark:text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed max-w-md sm:max-w-lg md:max-w-xl w-full">
-            {description}
+            Expert en React, Django & Architecture Web. Je conçois des solutions digitales robustes et scalables, de la logique backend à l'expérience utilisateur finale.
           </p>
 
-          <div className="flex gap-4 items-center justify-center md:justify-start w-full">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start w-full">
             <button
               onClick={onDownloadCV}
-              className="group flex items-center justify-center gap-2 w-fit px-6 py-3 sm:px-8 sm:py-4 bg-[#4CC9F0] dark:bg-[#22223B] text-[#051923] dark:text-[#4CC9F0] rounded-xl font-bold text-base sm:text-lg hover:bg-white dark:hover:bg-[#4CC9F0] hover:text-[#051923] dark:hover:text-[#051923] hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/20"
+              className="group flex items-center justify-center gap-2 w-full sm:w-fit px-6 py-3 sm:px-8 sm:py-4 bg-[#4CC9F0] dark:bg-[#22223B] text-[#051923] dark:text-[#4CC9F0] rounded-xl font-bold text-base sm:text-lg hover:bg-white dark:hover:bg-[#4CC9F0] hover:text-[#051923] dark:hover:text-[#051923] hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/20"
             >
               Telecharger mon CV
-              <span className="text-xl group-hover:translate-y-1 transition-transform">↓</span>
+              <Download size={20} className="group-hover:translate-y-1 transition-transform" />
             </button>
+            <a
+              href="#contact"
+              className="flex items-center justify-center gap-2 w-full sm:w-fit px-6 py-3 sm:px-8 sm:py-4 border border-white/20 dark:border-black/20 rounded-xl font-bold text-base sm:text-lg hover:bg-white/10 dark:hover:bg-black/5 transition-all duration-300 text-white dark:text-[#051923]"
+            >
+              <Send size={20} />
+              Me contacter
+            </a>
           </div>
 
           {/* Tech Stack Horizontal */}

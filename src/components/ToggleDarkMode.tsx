@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
 
 const ToggleDarkMode: React.FC = () => {
   const [dark, setDark] = React.useState(() =>
@@ -24,13 +25,13 @@ const ToggleDarkMode: React.FC = () => {
     <motion.button
       whileTap={{ scale: 0.9 }}
       onClick={toggle}
-      className="fixed top-4 right-4 z-50 p-2 rounded-full bg-blue-100 dark:bg-gray-700 shadow hover:bg-blue-200 dark:hover:bg-gray-600 transition-colors"
+      className="p-2 rounded-xl bg-white/5 dark:bg-gray-100 border border-white/10 dark:border-gray-200 shadow hover:bg-white/10 dark:hover:bg-gray-200 transition-colors"
       aria-label="Basculer le mode sombre"
     >
       {dark ? (
-        <span role="img" aria-label="Lune" className="text-xl">🌙</span>
+        <Sun size={20} className="text-yellow-500" />
       ) : (
-        <span role="img" aria-label="Soleil" className="text-xl">☀️</span>
+        <Moon size={20} className="text-blue-600" />
       )}
     </motion.button>
   );

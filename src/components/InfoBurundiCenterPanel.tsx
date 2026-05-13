@@ -3,10 +3,11 @@ import profileImage from '../assets/profile2.jpg';
 import emp from '../assets/empreinte.png';
 interface CenterPanelProps {
     cniPaperStyle: React.CSSProperties;
+    handleFlip: () => void;
 }
 
-export const InfoBurundiCenterPanel: React.FC<CenterPanelProps> = ({ cniPaperStyle }) => (
-    <div className="flex-1 p-4 flex flex-col items-center justify-around relative z-10 " style={cniPaperStyle}>
+export const InfoBurundiCenterPanel: React.FC<CenterPanelProps> = ({ cniPaperStyle, handleFlip }) => (
+    <div className="flex-1  p-4 flex flex-col items-center justify-around relative z-10 " style={cniPaperStyle} onClick={handleFlip}>
         <div className="text-center">
             <p className="text-[10px] font-bold uppercase mb-4 opacity-70">Igikumu ca Nyenyo</p>
 
